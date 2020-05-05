@@ -66,12 +66,13 @@
     
             function jogaaleatorio(){
                 var l,c;
-                do{
-                    l=Math.round(Math.random()*2);
-                    c=Math.round(Math.random()*2);
-                }while(jogo[l][c]!="");
-            jogo[l][c]="O";
-            
+                    if(jogando == true){
+                        do{
+                            l=Math.round(Math.random()*2);
+                            c=Math.round(Math.random()*2);
+                        }while(jogo[l][c]!="");
+                    jogo[l][c]="O";
+                    }
            } 
            
            function raciocinapc(){
@@ -84,6 +85,7 @@
                 
                 for (var i=0;i<=21;i = i + 3){ //Joga para vencer
                     for (var j=0;j<7;j=j+3){
+                        if(entrou == false){
                         if(jogo[linha[i]][coluna[i]] == combinacoes[j] && jogo[linha[i+1]][coluna[i+1]] == combinacoes[j+1] && jogo[linha[i+2]][coluna[i+2]] == combinacoes[j+2]){
                             entrou = true;
                             switch(j){
@@ -100,6 +102,7 @@
                                     break;
                             }
                         }
+                        }   
                     }
                 }
                             //COLOCAR AQUI O CÓDIGO PARA JOGAR DEFENSIVO
@@ -233,9 +236,11 @@
                     for(var c=0;c<3;c++){
                        if(jogo[l][c]=="X"){
                            tabuleiro[l][c].innerHTML="X";
+                           tabuleiro[l][c].style.color="green";
                            tabuleiro[l][c].style.cursor="default";
                        }else if (jogo[l][c]=="O"){
                            tabuleiro[l][c].innerHTML="O";
+                           tabuleiro[l][c].style.color="red";
                            tabuleiro[l][c].style.cursor="default";
                         } else {
                            tabuleiro[l][c].innerHTML="";
