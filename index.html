@@ -43,6 +43,13 @@
                 justify-content: center;
                 align-items: center;
                 font-size: 80px;
+                /* para impedir que o texto seja selecionado quando o usuário clica na tela */
+                  -webkit-touch-callout: none;  /* iPhone OS, Safari */
+                  -webkit-user-select: none;    /* Chrome, Safari 3 */
+                  -khtml-user-select: none;     /* Safari 2 */
+                  -moz-user-select: none;       /* Firefox */
+                  -ms-user-select: none;        /* IE10+ */
+                   user-select: none;            /* Possível implementação no futuro */
             }
         </style>
         
