@@ -42,14 +42,14 @@
                 width: 80%;
                 left: 10%;
                 height: 30px;
-            }
+               }
             
              #dvplacar {
                 background-color: cyan;
                 position: relative;
                 width: 60%;
                 height: 50px;
-                top: 40px;
+                top: 100px;
                 left: 20%;
                 
             }
@@ -61,7 +61,8 @@
                 left: 0px;
                 top: 0px;
                 color: #fff;
-                font-size: 36px;
+                font-size: 200%;
+      
          
             }
             #dvptcomputador{
@@ -72,7 +73,7 @@
                 left: 50%;
                 top: 0px;
                 color: #fff;
-                font-size: 36px;
+                font-size: 200%;
             }
             
             #p1 {border-bottom: solid #000; border-right: solid #000;}
@@ -222,9 +223,9 @@
                         if(jogo[linha[i]][coluna[i]] == jogo[linha[i+1]][coluna[i+1]] && jogo[linha[i+1]][coluna[i+1]] == jogo[linha[i+2]][coluna[i+2]]){
                             jogando = false;
                             result = jogo[linha[i]][coluna[i]];
-                            tabuleiro[linha[i]][coluna[i]].style.background="#eee";
-                            tabuleiro[linha[i+1]][coluna[i+1]].style.background="#eee";
-                            tabuleiro[linha[i+2]][coluna[i+2]].style.background="#eee";
+                            tabuleiro[linha[i]][coluna[i]].style.background="#ddd";
+                            tabuleiro[linha[i+1]][coluna[i+1]].style.background="#ddd";
+                            tabuleiro[linha[i+2]][coluna[i+2]].style.background="#ddd";
                         }
                     }
                 }
@@ -343,6 +344,7 @@
             }
             
             function inicia(){
+                document.getElementById("botao").blur(); //retira foco do botão
                 jogando = true;
                 jogada = 0;            
                 jogo=[["","",""],["","",""],["","",""]];
