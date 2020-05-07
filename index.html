@@ -61,7 +61,7 @@
                 left: 0px;
                 top: 0px;
                 color: #fff;
-                font-size: 200%;
+                font-size: 100%;
       
          
             }
@@ -73,7 +73,7 @@
                 left: 50%;
                 top: 0px;
                 color: #fff;
-                font-size: 200%;
+                font-size: 100%;
             }
             
             #p1 {border-bottom: solid #000; border-right: solid #000;}
@@ -112,6 +112,9 @@
             var clique = new Audio();
             clique.src = "clique.mp3";
             clique.preload;
+            var aplauso = new Audio();
+            aplauso.src = "aplauso.mp3";
+            aplauso.preload;
             
             var jogo=[]; //controla
             var tabuleiro=[]; //mostra na tela
@@ -232,6 +235,7 @@
                 
                 if (result == "X"){
                     jogando = false;
+                    aplauso.play();
                     alert("Você venceu!");
                     pontosjog++;
                     document.getElementById("dvptjogador").innerHTML="Jogador: "+pontosjog;
