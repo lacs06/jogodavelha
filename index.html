@@ -16,11 +16,11 @@
                 flex-wrap: wrap;
                 align-content: flex-start;
                 margin: auto;
-                margin-top: 140px;
+                margin-top: 130px;
             }
             
             #dvmenu {
-                background-color: #eeeeff;
+                background-color: #3f51b5;
                 color: #fff;
                 position: absolute;
                 width: 100%;
@@ -88,7 +88,7 @@
                 left: 0px;
                 width: 100%;
                 padding: 8px;
-                background-color: #000;
+                background-color: #3f51b5;
                 color: #fff;
                 text-align: center;
             
@@ -143,6 +143,7 @@
             var jogada = 0;
             var pontosjog = 0;
             var pontoscpu = 0;
+            var fimdejogo = false;
          
            
     
@@ -254,17 +255,18 @@
                 if (result == "X"){
                     jogando = false;
                     aplauso.play();
-                    alert("Você venceu!");
                     pontosjog++;
                     document.getElementById("dvptjogador").innerHTML="Jogador: "+pontosjog;
+                    if (pontosjog == 5) {alert("Fim de jogo. Você venceu!!!"); fimdejogo = true;}
                 } else if (result == "O") {
                     jogando = false;
-                    alert("Você perdeu!!!")
                     pontoscpu++;
-                    document.getElementById("dvptcomputador").innerHTML="Computador: "+pontoscpu;
+                    document.getElementById("dvptcomputador").innerHTML="CPU: "+pontoscpu;
+                    if (pontoscpu == 5) {alert("Fim de jogo. Computador venceu!!!");  fimdejogo = true;}
                 } else if (result == "" && jogada >= 9){
                     jogando = false;
-                    alert("Deu velha###")
+                    alert("### Deu Velha! ###");
+                    inicia();
                 }                         
             }
         
@@ -367,26 +369,27 @@
             
             function inicia(){
                 document.getElementById("botao").blur(); //retira foco do botão
-                jogando = true;
-                jogada = 0;            
-                jogo=[["","",""],["","",""],["","",""]];
-                tabuleiro=[
-                    [document.getElementById("p1"),document.getElementById("p2"), document.getElementById("p3")], //associa os elementos visuais (div) à matriz tabuleiro
-                    [document.getElementById("p4"),document.getElementById("p5"), document.getElementById("p6")],
-                    [document.getElementById("p7"),document.getElementById("p8"), document.getElementById("p9")]
-                    ];
-            atualizatabuleiro();
-            if(quemcomeca==1){
-                quemcomeca=0;
-                quemjoga=quemcomeca;
-                document.getElementById("dvquemcomeca").innerHTML="Quem começa: Jogador";
-            }else{
-                quemcomeca=1;
-                quemjoga=quemcomeca;
-                document.getElementById("dvquemcomeca").innerHTML="Quem começa: CPU";
-                cpujoga();
-            }
-            
+                if (fimdejogo == false){
+                    jogando = true;
+                    jogada = 0;            
+                    jogo=[["","",""],["","",""],["","",""]];
+                    tabuleiro=[
+                        [document.getElementById("p1"),document.getElementById("p2"), document.getElementById("p3")], //associa os elementos visuais (div) à matriz tabuleiro
+                        [document.getElementById("p4"),document.getElementById("p5"), document.getElementById("p6")],
+                        [document.getElementById("p7"),document.getElementById("p8"), document.getElementById("p9")]
+                        ];
+                atualizatabuleiro();
+                if(quemcomeca==1){
+                    quemcomeca=0;
+                    quemjoga=quemcomeca;
+                    document.getElementById("dvquemcomeca").innerHTML="Quem começa: Jogador";
+                }else{
+                    quemcomeca=1;
+                    quemjoga=quemcomeca;
+                    document.getElementById("dvquemcomeca").innerHTML="Quem começa: CPU";
+                    cpujoga();
+                }
+                }
             }
             
             window.addEventListener("load",inicia); //no carregamento da página, chama a função inicia();
@@ -396,7 +399,7 @@
             
     </head>
     <body>
-        <div id="dvinfo">Jogo da Velha<br>Melhor de 05 vitórias</div>
+        <div id="dvinfo">Jogo da Velha<br>Melhor de 05 vitórias - 05/2020</div>
         <div id='dvmenu'>
             
             <div id='dvquemcomeca'>Quem joga: </div>
@@ -414,8 +417,8 @@
             <div id="p9" class="posicoes" onclick="jogar(9)"></div>
         </div>
         <div id="dvplacar">
-            <div id="dvptjogador">Jogador: </div>
-            <div id="dvptcomputador">Computador: </div>
+            <div id="dvptjogador">Jogador: 0</div>
+            <div id="dvptcomputador">CPU: 0</div>
         </div>
     </body>
 </html>
