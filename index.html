@@ -20,12 +20,17 @@
             }
             
             #dvmenu {
-                background-color: white;
+                background-color: #eeeeff;
+                color: #fff;
                 position: absolute;
-                width: 60%;
+                width: 100%;
+                
+                top: 0%;
+                left: 0%;
                 height: 15%;
-                top: 0px;
-                left: 20%;
+                
+                text-align: center;
+                padding: 8px
                 
             }
             
@@ -38,19 +43,17 @@
             }
             
             #botao{
-                position: absolute;
-                width: 80%;
-                left: 10%;
+                width: 40%;
                 height: 30px;
                }
             
              #dvplacar {
-                background-color: cyan;
-                position: relative;
-                width: 80%;
-                height: 50px;
-                top: 50px;
-                left: 10%;
+                    /* background-color: cyan; */
+    position: absolute;
+    width: 80%;
+    height: 50px;
+    bottom: 15%;
+    left: 10%;
                 
             }
             
@@ -61,7 +64,8 @@
                 left: 0px;
                 top: 0px;
                 color: #fff;
-                font-size: 100%;
+                font-size: 140%;
+    text-align: center;
       
          
             }
@@ -73,7 +77,21 @@
                 left: 50%;
                 top: 0px;
                 color: #fff;
-                font-size: 100%;
+                
+                font-size: 140%;
+    text-align: center;
+            }
+            
+            #dvinfo {
+               position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                padding: 8px;
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+            
             }
             
             #p1 {border-bottom: solid #000; border-right: solid #000;}
@@ -378,7 +396,9 @@
             
     </head>
     <body>
+        <div id="dvinfo">Jogo da Velha<br>Melhor de 05 vitórias</div>
         <div id='dvmenu'>
+            
             <div id='dvquemcomeca'>Quem joga: </div>
             <button id="botao" onclick="inicia()">Iniciar Jogo</button>
         </div>
