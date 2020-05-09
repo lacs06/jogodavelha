@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<!-- meu primeiro programa em javascript + css + html5 -->
 
-<html>
+<html> 
     <head>
         <title>Jogo da Velha</title>
         <meta charset="utf-8">
@@ -9,14 +10,13 @@
         <style>
             
             #dvjogo {
-                
                 height: 320px;
                 width: 320px;
                 display: flex;
                 flex-wrap: wrap;
                 align-content: flex-start;
                 margin: auto;
-                margin-top: 130px;
+                margin-top: 140px;
             }
             
             #dvmenu {
@@ -24,11 +24,9 @@
                 color: #fff;
                 position: absolute;
                 width: 100%;
-                
                 top: 0%;
                 left: 0%;
                 height: 15%;
-                
                 text-align: center;
                 padding: 8px
                 
@@ -38,23 +36,20 @@
                 margin-top: 5px;
                 margin-bottom: 10px;
                 margin-left: 10px;
-                font-size: 24px;
-                
+                font-size: 24px;    
             }
             
             #botao{
                 width: 40%;
                 height: 30px;
-               }
+            }
             
              #dvplacar {
-                    /* background-color: cyan; */
-    position: absolute;
-    width: 80%;
-    height: 50px;
-    bottom: 15%;
-    left: 10%;
-                
+                position: absolute;
+                width: 80%;
+                height: 50px;
+                bottom: 11%;
+                left: 10%;    
             }
             
             #dvptjogador{
@@ -65,10 +60,9 @@
                 top: 0px;
                 color: #fff;
                 font-size: 140%;
-    text-align: center;
-      
-         
+                text-align: center;
             }
+            
             #dvptcomputador{
                 width: 50%;
                 height: 100%;
@@ -77,9 +71,8 @@
                 left: 50%;
                 top: 0px;
                 color: #fff;
-                
                 font-size: 140%;
-    text-align: center;
+                text-align: center;
             }
             
             #dvinfo {
@@ -123,7 +116,7 @@
             }
         </style>
         
-        <script>
+        <script> //Inicio Javascript
             var fail = new Audio();
             fail.src = "fail1.mp3";
             fail.preload;
@@ -217,7 +210,6 @@
                 if (entrou == false){
                     jogaaleatorio(); //SE NÃO VENCEU NEM DEFENDEU, JOGA ALEATÓRIO
                 }
-                
            }
             
             
@@ -399,7 +391,7 @@
             
     </head>
     <body>
-        <div id="dvinfo">Jogo da Velha<br>Melhor de 05 vitórias - 05/2020</div>
+        <div id="dvinfo">Jogo da Velha<br>Melhor de 05 vitórias - maio/2020</div>
         <div id='dvmenu'>
             
             <div id='dvquemcomeca'>Quem joga: </div>
